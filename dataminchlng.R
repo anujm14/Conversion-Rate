@@ -8,3 +8,16 @@ convdata <- read.table("conversion_data.csv", header=TRUE, sep = ",")
 str(conversion)
 #check if dataset came in R
 head(convdata)
+str(convdata)
+convdata$new_user <- as.factor(convdata$new_user)
+convdata$converted <- as.factor(convdata$converted)
+summary(convdata)
+sort(unique(convdata$age), decreasing=TRUE)
+qplot(convdata$age,
+      geom="histogram",
+      binwidth = 5,  
+      main = "Distribution of Visitor Age", 
+      xlab = "Age",  
+      fill=I("blue"), 
+      col=I("blue"), 
+      alpha=I(.2))
